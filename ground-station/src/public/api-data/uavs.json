@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Test01",
+    "registered_at": "2025-10-30T00:18:43.062Z",
+    "last_seen": "2025-10-30T04:48:15.396Z"
+  },
+  {
+    "name": "UAV - Alpha",
+    "registered_at": "2025-10-30T00:53:41.899Z",
+    "last_seen": "2025-10-30T00:53:41.899Z"
+  },
+  {
+    "name": "UAV - Bravo",
+    "registered_at": "2025-10-30T00:53:48.144Z",
+    "last_seen": "2025-10-30T00:53:48.144Z"
+  },
+  {
+    "name": "UAV - Mock",
+    "registered_at": "2025-10-30T02:34:48.982Z",
+    "last_seen": "2025-10-30T02:44:35.571Z"
+  },
+  {
+    "name": "UAV - 0001",
+    "registered_at": "2025-10-30T02:34:48.994Z",
+    "last_seen": "2025-10-30T02:34:48.994Z"
+  }
+]

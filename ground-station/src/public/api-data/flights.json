@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1761791862597,
+    "flight_id": "flight_history_20251017",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-17",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:37:42.597Z",
+    "end_time": "2025-10-30T02:44:07.469Z",
+    "status": "completed",
+    "waypoint_count": 0
+  },
+  {
+    "id": 1761791869485,
+    "flight_id": "flight_history_20251018",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-18",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:37:49.485Z",
+    "end_time": null,
+    "status": "active",
+    "waypoint_count": 0
+  },
+  {
+    "id": 1761791897330,
+    "flight_id": "flight_history_20251022",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-22",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:38:17.330Z",
+    "end_time": "2025-10-30T02:45:09.825Z",
+    "status": "completed",
+    "waypoint_count": 0
+  },
+  {
+    "id": 1761792030524,
+    "flight_id": "flight_history_20251017",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-17",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:40:30.524Z",
+    "end_time": null,
+    "status": "active",
+    "waypoint_count": 0
+  },
+  {
+    "id": 1761792037368,
+    "flight_id": "flight_history_20251018",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-18",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:40:37.368Z",
+    "end_time": null,
+    "status": "active",
+    "waypoint_count": 0
+  },
+  {
+    "id": 1761792065376,
+    "flight_id": "flight_history_20251022",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-22",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:41:05.376Z",
+    "end_time": null,
+    "status": "active",
+    "waypoint_count": 0
+  },
+  {
+    "id": 1761792240481,
+    "flight_id": "flight_history_20251017",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-17",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:44:00.481Z",
+    "end_time": null,
+    "status": "active",
+    "waypoint_count": 0
+  },
+  {
+    "id": 1761792247477,
+    "flight_id": "flight_history_20251018",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-18",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:44:07.477Z",
+    "end_time": null,
+    "status": "active",
+    "waypoint_count": 0
+  },
+  {
+    "id": 1761792275573,
+    "flight_id": "flight_history_20251022",
+    "uav_name": "UAV - Mock",
+    "name": "Historical Flight 2025-10-22",
+    "location": "Historical Data Import",
+    "start_time": "2025-10-30T02:44:35.573Z",
+    "end_time": null,
+    "status": "active",
+    "waypoint_count": 0
+  }
+]

@@ -1,0 +1,44 @@
+/* Leaflet Map Fixes - keep these as they're leaflet-specific */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.uav-marker {
+  background: transparent;
+  border: none;
+}
+
+.survivor-marker {
+  background: transparent;
+  border: none;
+}
+
+/* Ensure proper tile layering */
+.leaflet-tile-pane {
+  z-index: 200 !important;
+}
+
+/* Ensure overlay pane is above satellite */
+.leaflet-overlay-pane {
+  z-index: 400 !important;
+}
+
+/* Ensure proper rendering of overlapping polygons */
+.leaflet-overlay-pane svg {
+  pointer-events: none;
+}
+
+.leaflet-overlay-pane path {
+  mix-blend-mode: normal;
+}
+
+/* Ensure leaflet controls don't overlap our buttons */
+.leaflet-control-container .leaflet-bottom {
+  bottom: 70px;
+}
+
+.leaflet-control-container .leaflet-right {
+  right: 140px;
+}

@@ -1,0 +1,1373 @@
+[
+  {
+    "id": "history_20251017",
+    "name": "Colorado Survey - Oct 2025",
+    "location": "Colorado, USA",
+    "date": "20251017",
+    "duration": 38,
+    "uavModel": "phantom_4",
+    "waypoints": [
+      {
+        "lat": 39.62294081672222,
+        "lng": -104.87477448891667,
+        "altitude": 1821.5,
+        "timestamp": 0,
+        "image": "history_images/history_20251017/P5910593.JPG"
+      },
+      {
+        "lat": 39.623043,
+        "lng": -104.87477340669444,
+        "altitude": 1821.699951171875,
+        "timestamp": 1,
+        "image": "history_images/history_20251017/P5920594.JPG"
+      },
+      {
+        "lat": 39.62335683194444,
+        "lng": -104.87477174358334,
+        "altitude": 1821.5999755859375,
+        "timestamp": 2,
+        "image": "history_images/history_20251017/P5930595.JPG"
+      },
+      {
+        "lat": 39.623604255888885,
+        "lng": -104.8747708405,
+        "altitude": 1821.4000244140625,
+        "timestamp": 3,
+        "image": "history_images/history_20251017/P5940596.JPG"
+      },
+      {
+        "lat": 39.62390856677778,
+        "lng": -104.87477213394445,
+        "altitude": 1821.199951171875,
+        "timestamp": 4,
+        "image": "history_images/history_20251017/P5950597.JPG"
+      },
+      {
+        "lat": 39.624029355194445,
+        "lng": -104.87475420922222,
+        "altitude": 1821.300048828125,
+        "timestamp": 5,
+        "image": "history_images/history_20251017/P5960598.JPG"
+      },
+      {
+        "lat": 39.62402718244444,
+        "lng": -104.87537487869444,
+        "altitude": 1821.4000244140625,
+        "timestamp": 6,
+        "image": "history_images/history_20251017/P5970599.JPG"
+      },
+      {
+        "lat": 39.62363142983333,
+        "lng": -104.87537340488889,
+        "altitude": 1821.699951171875,
+        "timestamp": 7,
+        "image": "history_images/history_20251017/P5980600.JPG"
+      },
+      {
+        "lat": 39.62336006341667,
+        "lng": -104.8753724965,
+        "altitude": 1821.699951171875,
+        "timestamp": 8,
+        "image": "history_images/history_20251017/P5990601.JPG"
+      },
+      {
+        "lat": 39.62308994925,
+        "lng": -104.87537271733333,
+        "altitude": 1821.5999755859375,
+        "timestamp": 9,
+        "image": "history_images/history_20251017/P6000602.JPG"
+      },
+      {
+        "lat": 39.62282969511111,
+        "lng": -104.87537314672223,
+        "altitude": 1821.4000244140625,
+        "timestamp": 10,
+        "image": "history_images/history_20251017/P6010603.JPG"
+      },
+      {
+        "lat": 39.62254957841667,
+        "lng": -104.87537315963888,
+        "altitude": 1821.300048828125,
+        "timestamp": 11,
+        "image": "history_images/history_20251017/P6020604.JPG"
+      },
+      {
+        "lat": 39.622293474972224,
+        "lng": -104.87537287652778,
+        "altitude": 1821.4000244140625,
+        "timestamp": 12,
+        "image": "history_images/history_20251017/P6030605.JPG"
+      },
+      {
+        "lat": 39.62213429166667,
+        "lng": -104.87537400505556,
+        "altitude": 1822.199951171875,
+        "timestamp": 13,
+        "image": "history_images/history_20251017/P6040606.JPG"
+      },
+      {
+        "lat": 39.6221351415,
+        "lng": -104.8759925751389,
+        "altitude": 1820.0999755859375,
+        "timestamp": 14,
+        "image": "history_images/history_20251017/P6050607.JPG"
+      },
+      {
+        "lat": 39.622545977583336,
+        "lng": -104.87599903344444,
+        "altitude": 1820.4000244140625,
+        "timestamp": 15,
+        "image": "history_images/history_20251017/P6060608.JPG"
+      },
+      {
+        "lat": 39.62279848125,
+        "lng": -104.87599948508333,
+        "altitude": 1820.300048828125,
+        "timestamp": 16,
+        "image": "history_images/history_20251017/P6070609.JPG"
+      },
+      {
+        "lat": 39.62306652513889,
+        "lng": -104.87599337222223,
+        "altitude": 1820.0,
+        "timestamp": 17,
+        "image": "history_images/history_20251017/P6080610.JPG"
+      },
+      {
+        "lat": 39.62332531505555,
+        "lng": -104.87599773166667,
+        "altitude": 1819.9000244140625,
+        "timestamp": 18,
+        "image": "history_images/history_20251017/P6090611.JPG"
+      },
+      {
+        "lat": 39.62364473963889,
+        "lng": -104.875994377,
+        "altitude": 1820.300048828125,
+        "timestamp": 19,
+        "image": "history_images/history_20251017/P6100612.JPG"
+      },
+      {
+        "lat": 39.62388375211111,
+        "lng": -104.87600015669445,
+        "altitude": 1820.300048828125,
+        "timestamp": 20,
+        "image": "history_images/history_20251017/P6110613.JPG"
+      },
+      {
+        "lat": 39.624028470944445,
+        "lng": -104.87598321852778,
+        "altitude": 1820.9000244140625,
+        "timestamp": 21,
+        "image": "history_images/history_20251017/P6120614.JPG"
+      },
+      {
+        "lat": 39.62402701105555,
+        "lng": -104.87659579775,
+        "altitude": 1821.0,
+        "timestamp": 22,
+        "image": "history_images/history_20251017/P6130615.JPG"
+      },
+      {
+        "lat": 39.623570352916666,
+        "lng": -104.87659575322222,
+        "altitude": 1821.4000244140625,
+        "timestamp": 23,
+        "image": "history_images/history_20251017/P6140616.JPG"
+      },
+      {
+        "lat": 39.623298899333335,
+        "lng": -104.87659674761112,
+        "altitude": 1820.9000244140625,
+        "timestamp": 24,
+        "image": "history_images/history_20251017/P6150617.JPG"
+      },
+      {
+        "lat": 39.62302951886111,
+        "lng": -104.87659767252778,
+        "altitude": 1820.699951171875,
+        "timestamp": 25,
+        "image": "history_images/history_20251017/P6160618.JPG"
+      },
+      {
+        "lat": 39.62275972658333,
+        "lng": -104.87659961916667,
+        "altitude": 1820.800048828125,
+        "timestamp": 26,
+        "image": "history_images/history_20251017/P6170619.JPG"
+      },
+      {
+        "lat": 39.62248988088889,
+        "lng": -104.87660065755556,
+        "altitude": 1821.0,
+        "timestamp": 27,
+        "image": "history_images/history_20251017/P6180620.JPG"
+      },
+      {
+        "lat": 39.62224829744444,
+        "lng": -104.8766010765,
+        "altitude": 1821.0999755859375,
+        "timestamp": 28,
+        "image": "history_images/history_20251017/P6190621.JPG"
+      },
+      {
+        "lat": 39.622133994583336,
+        "lng": -104.87660251102778,
+        "altitude": 1821.5,
+        "timestamp": 29,
+        "image": "history_images/history_20251017/P6200622.JPG"
+      },
+      {
+        "lat": 39.622139004527774,
+        "lng": -104.87721400194444,
+        "altitude": 1819.699951171875,
+        "timestamp": 30,
+        "image": "history_images/history_20251017/P6210623.JPG"
+      },
+      {
+        "lat": 39.62254857688889,
+        "lng": -104.87722736644444,
+        "altitude": 1821.0999755859375,
+        "timestamp": 31,
+        "image": "history_images/history_20251017/P6220624.JPG"
+      },
+      {
+        "lat": 39.62278830305556,
+        "lng": -104.87722214141667,
+        "altitude": 1821.199951171875,
+        "timestamp": 32,
+        "image": "history_images/history_20251017/P6230625.JPG"
+      },
+      {
+        "lat": 39.62304614558333,
+        "lng": -104.87721869388889,
+        "altitude": 1821.0999755859375,
+        "timestamp": 33,
+        "image": "history_images/history_20251017/P6240626.JPG"
+      },
+      {
+        "lat": 39.62332960236111,
+        "lng": -104.87723006072223,
+        "altitude": 1821.0,
+        "timestamp": 34,
+        "image": "history_images/history_20251017/P6250627.JPG"
+      },
+      {
+        "lat": 39.62360792444444,
+        "lng": -104.87722619913889,
+        "altitude": 1821.0,
+        "timestamp": 35,
+        "image": "history_images/history_20251017/P6260628.JPG"
+      },
+      {
+        "lat": 39.62386036672222,
+        "lng": -104.87723225313889,
+        "altitude": 1821.0,
+        "timestamp": 36,
+        "image": "history_images/history_20251017/P6270629.JPG"
+      },
+      {
+        "lat": 39.62402971811111,
+        "lng": -104.87720987277778,
+        "altitude": 1821.5,
+        "timestamp": 37,
+        "image": "history_images/history_20251017/P6280630.JPG"
+      }
+    ]
+  },
+  {
+    "id": "history_20251018",
+    "name": "Caribbean Survey - Oct 2025",
+    "location": "Dominica, Caribbean",
+    "date": "20251018",
+    "duration": 155,
+    "uavModel": "phantom_4",
+    "waypoints": [
+      {
+        "lat": 15.280409277777778,
+        "lng": -61.36736802777778,
+        "altitude": 230.228,
+        "timestamp": 0,
+        "image": "history_images/history_20251018/DJI_0001.JPG"
+      },
+      {
+        "lat": 15.280410972222223,
+        "lng": -61.368126333333336,
+        "altitude": 230.228,
+        "timestamp": 1,
+        "image": "history_images/history_20251018/DJI_0010.JPG"
+      },
+      {
+        "lat": 15.28040925,
+        "lng": -61.36895975,
+        "altitude": 230.128,
+        "timestamp": 2,
+        "image": "history_images/history_20251018/DJI_0019.JPG"
+      },
+      {
+        "lat": 15.280410611111112,
+        "lng": -61.369801,
+        "altitude": 230.128,
+        "timestamp": 3,
+        "image": "history_images/history_20251018/DJI_0028.JPG"
+      },
+      {
+        "lat": 15.280410583333333,
+        "lng": -61.37064375,
+        "altitude": 230.128,
+        "timestamp": 4,
+        "image": "history_images/history_20251018/DJI_0037.JPG"
+      },
+      {
+        "lat": 15.280410305555556,
+        "lng": -61.37148855555556,
+        "altitude": 230.128,
+        "timestamp": 5,
+        "image": "history_images/history_20251018/DJI_0046.JPG"
+      },
+      {
+        "lat": 15.280410111111111,
+        "lng": -61.372325805555555,
+        "altitude": 230.228,
+        "timestamp": 6,
+        "image": "history_images/history_20251018/DJI_0055.JPG"
+      },
+      {
+        "lat": 15.280410083333333,
+        "lng": -61.373167555555554,
+        "altitude": 230.128,
+        "timestamp": 7,
+        "image": "history_images/history_20251018/DJI_0064.JPG"
+      },
+      {
+        "lat": 15.280410333333334,
+        "lng": -61.37400430555556,
+        "altitude": 230.128,
+        "timestamp": 8,
+        "image": "history_images/history_20251018/DJI_0073.JPG"
+      },
+      {
+        "lat": 15.280411222222222,
+        "lng": -61.37484461111111,
+        "altitude": 230.128,
+        "timestamp": 9,
+        "image": "history_images/history_20251018/DJI_0082.JPG"
+      },
+      {
+        "lat": 15.280636722222223,
+        "lng": -61.374809472222225,
+        "altitude": 230.128,
+        "timestamp": 10,
+        "image": "history_images/history_20251018/DJI_0091.JPG"
+      },
+      {
+        "lat": 15.280637166666667,
+        "lng": -61.37397111111111,
+        "altitude": 230.228,
+        "timestamp": 11,
+        "image": "history_images/history_20251018/DJI_0100.JPG"
+      },
+      {
+        "lat": 15.280637583333334,
+        "lng": -61.37313113888889,
+        "altitude": 230.228,
+        "timestamp": 12,
+        "image": "history_images/history_20251018/DJI_0109.JPG"
+      },
+      {
+        "lat": 15.280638194444444,
+        "lng": -61.37229352777778,
+        "altitude": 230.128,
+        "timestamp": 13,
+        "image": "history_images/history_20251018/DJI_0118.JPG"
+      },
+      {
+        "lat": 15.280637777777779,
+        "lng": -61.371457666666664,
+        "altitude": 230.228,
+        "timestamp": 14,
+        "image": "history_images/history_20251018/DJI_0127.JPG"
+      },
+      {
+        "lat": 15.28063761111111,
+        "lng": -61.37062088888889,
+        "altitude": 230.228,
+        "timestamp": 15,
+        "image": "history_images/history_20251018/DJI_0136.JPG"
+      },
+      {
+        "lat": 15.280637777777779,
+        "lng": -61.369784833333334,
+        "altitude": 230.228,
+        "timestamp": 16,
+        "image": "history_images/history_20251018/DJI_0145.JPG"
+      },
+      {
+        "lat": 15.280638,
+        "lng": -61.36894872222222,
+        "altitude": 230.228,
+        "timestamp": 17,
+        "image": "history_images/history_20251018/DJI_0154.JPG"
+      },
+      {
+        "lat": 15.280638277777777,
+        "lng": -61.36811183333333,
+        "altitude": 230.128,
+        "timestamp": 18,
+        "image": "history_images/history_20251018/DJI_0163.JPG"
+      },
+      {
+        "lat": 15.280637666666667,
+        "lng": -61.367280944444445,
+        "altitude": 230.328,
+        "timestamp": 19,
+        "image": "history_images/history_20251018/DJI_0172.JPG"
+      },
+      {
+        "lat": 15.280865083333333,
+        "lng": -61.36787638888889,
+        "altitude": 230.228,
+        "timestamp": 20,
+        "image": "history_images/history_20251018/DJI_0181.JPG"
+      },
+      {
+        "lat": 15.280863444444444,
+        "lng": -61.36871516666667,
+        "altitude": 230.328,
+        "timestamp": 21,
+        "image": "history_images/history_20251018/DJI_0190.JPG"
+      },
+      {
+        "lat": 15.280864916666667,
+        "lng": -61.36955308333334,
+        "altitude": 230.228,
+        "timestamp": 22,
+        "image": "history_images/history_20251018/DJI_0199.JPG"
+      },
+      {
+        "lat": 15.280865,
+        "lng": -61.37039247222222,
+        "altitude": 230.228,
+        "timestamp": 23,
+        "image": "history_images/history_20251018/DJI_0208.JPG"
+      },
+      {
+        "lat": 15.28086425,
+        "lng": -61.37123013888889,
+        "altitude": 230.328,
+        "timestamp": 24,
+        "image": "history_images/history_20251018/DJI_0217.JPG"
+      },
+      {
+        "lat": 15.280864333333334,
+        "lng": -61.37206558333333,
+        "altitude": 230.228,
+        "timestamp": 25,
+        "image": "history_images/history_20251018/DJI_0226.JPG"
+      },
+      {
+        "lat": 15.280864527777778,
+        "lng": -61.37290372222222,
+        "altitude": 230.128,
+        "timestamp": 26,
+        "image": "history_images/history_20251018/DJI_0235.JPG"
+      },
+      {
+        "lat": 15.280865166666667,
+        "lng": -61.37373922222222,
+        "altitude": 230.128,
+        "timestamp": 27,
+        "image": "history_images/history_20251018/DJI_0244.JPG"
+      },
+      {
+        "lat": 15.28086425,
+        "lng": -61.374575666666665,
+        "altitude": 230.228,
+        "timestamp": 28,
+        "image": "history_images/history_20251018/DJI_0253.JPG"
+      },
+      {
+        "lat": 15.281087055555556,
+        "lng": -61.37502111111111,
+        "altitude": 230.228,
+        "timestamp": 29,
+        "image": "history_images/history_20251018/DJI_0262.JPG"
+      },
+      {
+        "lat": 15.281092027777778,
+        "lng": -61.374191805555554,
+        "altitude": 230.128,
+        "timestamp": 30,
+        "image": "history_images/history_20251018/DJI_0271.JPG"
+      },
+      {
+        "lat": 15.281092166666667,
+        "lng": -61.37335655555555,
+        "altitude": 230.228,
+        "timestamp": 31,
+        "image": "history_images/history_20251018/DJI_0280.JPG"
+      },
+      {
+        "lat": 15.281092444444445,
+        "lng": -61.372519555555556,
+        "altitude": 230.228,
+        "timestamp": 32,
+        "image": "history_images/history_20251018/DJI_0289.JPG"
+      },
+      {
+        "lat": 15.281091972222223,
+        "lng": -61.37168311111111,
+        "altitude": 230.328,
+        "timestamp": 33,
+        "image": "history_images/history_20251018/DJI_0298.JPG"
+      },
+      {
+        "lat": 15.281092166666667,
+        "lng": -61.37084211111111,
+        "altitude": 230.228,
+        "timestamp": 34,
+        "image": "history_images/history_20251018/DJI_0307.JPG"
+      },
+      {
+        "lat": 15.281092333333333,
+        "lng": -61.370000805555556,
+        "altitude": 230.228,
+        "timestamp": 35,
+        "image": "history_images/history_20251018/DJI_0316.JPG"
+      },
+      {
+        "lat": 15.281092416666667,
+        "lng": -61.369163694444445,
+        "altitude": 230.228,
+        "timestamp": 36,
+        "image": "history_images/history_20251018/DJI_0325.JPG"
+      },
+      {
+        "lat": 15.281092222222222,
+        "lng": -61.36832252777778,
+        "altitude": 230.328,
+        "timestamp": 37,
+        "image": "history_images/history_20251018/DJI_0334.JPG"
+      },
+      {
+        "lat": 15.281091416666667,
+        "lng": -61.36747202777778,
+        "altitude": 230.228,
+        "timestamp": 38,
+        "image": "history_images/history_20251018/DJI_0343.JPG"
+      },
+      {
+        "lat": 15.281316361111111,
+        "lng": -61.36724594444444,
+        "altitude": 230.228,
+        "timestamp": 39,
+        "image": "history_images/history_20251018/DJI_0352.JPG"
+      },
+      {
+        "lat": 15.281318777777777,
+        "lng": -61.36807113888889,
+        "altitude": 230.328,
+        "timestamp": 40,
+        "image": "history_images/history_20251018/DJI_0361.JPG"
+      },
+      {
+        "lat": 15.281319305555556,
+        "lng": -61.36891141666667,
+        "altitude": 230.328,
+        "timestamp": 41,
+        "image": "history_images/history_20251018/DJI_0370.JPG"
+      },
+      {
+        "lat": 15.281318888888888,
+        "lng": -61.36975752777778,
+        "altitude": 230.328,
+        "timestamp": 42,
+        "image": "history_images/history_20251018/DJI_0379.JPG"
+      },
+      {
+        "lat": 15.281319083333333,
+        "lng": -61.37059422222222,
+        "altitude": 230.328,
+        "timestamp": 43,
+        "image": "history_images/history_20251018/DJI_0388.JPG"
+      },
+      {
+        "lat": 15.28131838888889,
+        "lng": -61.371430583333336,
+        "altitude": 230.328,
+        "timestamp": 44,
+        "image": "history_images/history_20251018/DJI_0397.JPG"
+      },
+      {
+        "lat": 15.28131975,
+        "lng": -61.372271805555556,
+        "altitude": 230.328,
+        "timestamp": 45,
+        "image": "history_images/history_20251018/DJI_0406.JPG"
+      },
+      {
+        "lat": 15.281318333333333,
+        "lng": -61.37310883333333,
+        "altitude": 230.328,
+        "timestamp": 46,
+        "image": "history_images/history_20251018/DJI_0415.JPG"
+      },
+      {
+        "lat": 15.281318861111112,
+        "lng": -61.37394388888889,
+        "altitude": 230.328,
+        "timestamp": 47,
+        "image": "history_images/history_20251018/DJI_0424.JPG"
+      },
+      {
+        "lat": 15.281319611111112,
+        "lng": -61.37478625,
+        "altitude": 230.228,
+        "timestamp": 48,
+        "image": "history_images/history_20251018/DJI_0433.JPG"
+      },
+      {
+        "lat": 15.281545166666668,
+        "lng": -61.37499991666667,
+        "altitude": 230.328,
+        "timestamp": 49,
+        "image": "history_images/history_20251018/DJI_0442.JPG"
+      },
+      {
+        "lat": 15.281546305555555,
+        "lng": -61.37416763888889,
+        "altitude": 230.328,
+        "timestamp": 50,
+        "image": "history_images/history_20251018/DJI_0451.JPG"
+      },
+      {
+        "lat": 15.281546583333334,
+        "lng": -61.37332586111111,
+        "altitude": 230.328,
+        "timestamp": 51,
+        "image": "history_images/history_20251018/DJI_0460.JPG"
+      },
+      {
+        "lat": 15.281546444444444,
+        "lng": -61.3724895,
+        "altitude": 230.328,
+        "timestamp": 52,
+        "image": "history_images/history_20251018/DJI_0469.JPG"
+      },
+      {
+        "lat": 15.281546055555555,
+        "lng": -61.37165322222222,
+        "altitude": 230.328,
+        "timestamp": 53,
+        "image": "history_images/history_20251018/DJI_0478.JPG"
+      },
+      {
+        "lat": 15.281546416666666,
+        "lng": -61.37081644444444,
+        "altitude": 230.428,
+        "timestamp": 54,
+        "image": "history_images/history_20251018/DJI_0487.JPG"
+      },
+      {
+        "lat": 15.281546305555555,
+        "lng": -61.36997433333333,
+        "altitude": 230.428,
+        "timestamp": 55,
+        "image": "history_images/history_20251018/DJI_0496.JPG"
+      },
+      {
+        "lat": 15.281546194444445,
+        "lng": -61.369139,
+        "altitude": 230.428,
+        "timestamp": 56,
+        "image": "history_images/history_20251018/DJI_0505.JPG"
+      },
+      {
+        "lat": 15.281545888888889,
+        "lng": -61.36830166666667,
+        "altitude": 230.328,
+        "timestamp": 57,
+        "image": "history_images/history_20251018/DJI_0514.JPG"
+      },
+      {
+        "lat": 15.28154638888889,
+        "lng": -61.36746522222222,
+        "altitude": 230.328,
+        "timestamp": 58,
+        "image": "history_images/history_20251018/DJI_0523.JPG"
+      },
+      {
+        "lat": 15.281773416666667,
+        "lng": -61.36702075,
+        "altitude": 230.328,
+        "timestamp": 59,
+        "image": "history_images/history_20251018/DJI_0532.JPG"
+      },
+      {
+        "lat": 15.281774472222223,
+        "lng": -61.367815722222225,
+        "altitude": 230.328,
+        "timestamp": 60,
+        "image": "history_images/history_20251018/DJI_0541.JPG"
+      },
+      {
+        "lat": 15.281340416666668,
+        "lng": -61.37480075,
+        "altitude": 231.562,
+        "timestamp": 61,
+        "image": "history_images/history_20251018/DJI_0550.JPG"
+      },
+      {
+        "lat": 15.281341694444444,
+        "lng": -61.37368433333334,
+        "altitude": 231.562,
+        "timestamp": 62,
+        "image": "history_images/history_20251018/DJI_0559.JPG"
+      },
+      {
+        "lat": 15.281341555555555,
+        "lng": -61.372560138888886,
+        "altitude": 231.562,
+        "timestamp": 63,
+        "image": "history_images/history_20251018/DJI_0568.JPG"
+      },
+      {
+        "lat": 15.281340805555555,
+        "lng": -61.37144136111111,
+        "altitude": 231.562,
+        "timestamp": 64,
+        "image": "history_images/history_20251018/DJI_0577.JPG"
+      },
+      {
+        "lat": 15.281341944444444,
+        "lng": -61.37032088888889,
+        "altitude": 231.562,
+        "timestamp": 65,
+        "image": "history_images/history_20251018/DJI_0586.JPG"
+      },
+      {
+        "lat": 15.281341583333333,
+        "lng": -61.36920122222222,
+        "altitude": 231.562,
+        "timestamp": 66,
+        "image": "history_images/history_20251018/DJI_0595.JPG"
+      },
+      {
+        "lat": 15.28134225,
+        "lng": -61.368075,
+        "altitude": 231.462,
+        "timestamp": 67,
+        "image": "history_images/history_20251018/DJI_0604.JPG"
+      },
+      {
+        "lat": 15.281341833333334,
+        "lng": -61.36701241666667,
+        "altitude": 231.562,
+        "timestamp": 68,
+        "image": "history_images/history_20251018/DJI_0613.JPG"
+      },
+      {
+        "lat": 15.281599805555556,
+        "lng": -61.36728911111111,
+        "altitude": 231.462,
+        "timestamp": 69,
+        "image": "history_images/history_20251018/DJI_0622.JPG"
+      },
+      {
+        "lat": 15.281600361111112,
+        "lng": -61.36841152777778,
+        "altitude": 231.462,
+        "timestamp": 70,
+        "image": "history_images/history_20251018/DJI_0631.JPG"
+      },
+      {
+        "lat": 15.281599777777778,
+        "lng": -61.36953611111111,
+        "altitude": 231.562,
+        "timestamp": 71,
+        "image": "history_images/history_20251018/DJI_0640.JPG"
+      },
+      {
+        "lat": 15.281599972222223,
+        "lng": -61.37065477777778,
+        "altitude": 231.562,
+        "timestamp": 72,
+        "image": "history_images/history_20251018/DJI_0649.JPG"
+      },
+      {
+        "lat": 15.2815995,
+        "lng": -61.37177441666667,
+        "altitude": 231.662,
+        "timestamp": 73,
+        "image": "history_images/history_20251018/DJI_0658.JPG"
+      },
+      {
+        "lat": 15.281600972222222,
+        "lng": -61.37289452777778,
+        "altitude": 231.562,
+        "timestamp": 74,
+        "image": "history_images/history_20251018/DJI_0667.JPG"
+      },
+      {
+        "lat": 15.281600361111112,
+        "lng": -61.37401369444444,
+        "altitude": 231.662,
+        "timestamp": 75,
+        "image": "history_images/history_20251018/DJI_0676.JPG"
+      },
+      {
+        "lat": 15.28159988888889,
+        "lng": -61.37513383333334,
+        "altitude": 231.662,
+        "timestamp": 76,
+        "image": "history_images/history_20251018/DJI_0685.JPG"
+      },
+      {
+        "lat": 15.281858166666666,
+        "lng": -61.37489405555556,
+        "altitude": 231.562,
+        "timestamp": 77,
+        "image": "history_images/history_20251018/DJI_0694.JPG"
+      },
+      {
+        "lat": 15.281857944444445,
+        "lng": -61.37378025,
+        "altitude": 231.662,
+        "timestamp": 78,
+        "image": "history_images/history_20251018/DJI_0703.JPG"
+      },
+      {
+        "lat": 15.281858583333333,
+        "lng": -61.37266011111111,
+        "altitude": 231.662,
+        "timestamp": 79,
+        "image": "history_images/history_20251018/DJI_0712.JPG"
+      },
+      {
+        "lat": 15.281858777777778,
+        "lng": -61.37154077777778,
+        "altitude": 231.562,
+        "timestamp": 80,
+        "image": "history_images/history_20251018/DJI_0721.JPG"
+      },
+      {
+        "lat": 15.281859361111112,
+        "lng": -61.370415027777774,
+        "altitude": 231.662,
+        "timestamp": 81,
+        "image": "history_images/history_20251018/DJI_0730.JPG"
+      },
+      {
+        "lat": 15.281858777777778,
+        "lng": -61.36929577777778,
+        "altitude": 231.662,
+        "timestamp": 82,
+        "image": "history_images/history_20251018/DJI_0739.JPG"
+      },
+      {
+        "lat": 15.28185911111111,
+        "lng": -61.368170222222226,
+        "altitude": 231.562,
+        "timestamp": 83,
+        "image": "history_images/history_20251018/DJI_0748.JPG"
+      },
+      {
+        "lat": 15.281859388888888,
+        "lng": -61.367044694444445,
+        "altitude": 231.562,
+        "timestamp": 84,
+        "image": "history_images/history_20251018/DJI_0757.JPG"
+      },
+      {
+        "lat": 15.282115194444444,
+        "lng": -61.367354166666665,
+        "altitude": 231.562,
+        "timestamp": 85,
+        "image": "history_images/history_20251018/DJI_0766.JPG"
+      },
+      {
+        "lat": 15.282117222222222,
+        "lng": -61.36847069444445,
+        "altitude": 231.662,
+        "timestamp": 86,
+        "image": "history_images/history_20251018/DJI_0775.JPG"
+      },
+      {
+        "lat": 15.282117388888889,
+        "lng": -61.369590027777775,
+        "altitude": 231.662,
+        "timestamp": 87,
+        "image": "history_images/history_20251018/DJI_0784.JPG"
+      },
+      {
+        "lat": 15.282117944444444,
+        "lng": -61.370709833333336,
+        "altitude": 231.662,
+        "timestamp": 88,
+        "image": "history_images/history_20251018/DJI_0793.JPG"
+      },
+      {
+        "lat": 15.282118333333333,
+        "lng": -61.37182680555556,
+        "altitude": 231.662,
+        "timestamp": 89,
+        "image": "history_images/history_20251018/DJI_0802.JPG"
+      },
+      {
+        "lat": 15.282117972222222,
+        "lng": -61.372948694444446,
+        "altitude": 231.762,
+        "timestamp": 90,
+        "image": "history_images/history_20251018/DJI_0811.JPG"
+      },
+      {
+        "lat": 15.282117194444444,
+        "lng": -61.37406680555556,
+        "altitude": 231.662,
+        "timestamp": 91,
+        "image": "history_images/history_20251018/DJI_0820.JPG"
+      },
+      {
+        "lat": 15.282118805555555,
+        "lng": -61.375193861111114,
+        "altitude": 231.762,
+        "timestamp": 92,
+        "image": "history_images/history_20251018/DJI_0829.JPG"
+      },
+      {
+        "lat": 15.28237475,
+        "lng": -61.37493038888889,
+        "altitude": 231.662,
+        "timestamp": 93,
+        "image": "history_images/history_20251018/DJI_0838.JPG"
+      },
+      {
+        "lat": 15.282376361111112,
+        "lng": -61.37381444444444,
+        "altitude": 231.762,
+        "timestamp": 94,
+        "image": "history_images/history_20251018/DJI_0847.JPG"
+      },
+      {
+        "lat": 15.28237686111111,
+        "lng": -61.37269763888889,
+        "altitude": 231.662,
+        "timestamp": 95,
+        "image": "history_images/history_20251018/DJI_0856.JPG"
+      },
+      {
+        "lat": 15.282376888888889,
+        "lng": -61.37157608333333,
+        "altitude": 231.662,
+        "timestamp": 96,
+        "image": "history_images/history_20251018/DJI_0865.JPG"
+      },
+      {
+        "lat": 15.282376055555556,
+        "lng": -61.370457583333334,
+        "altitude": 231.662,
+        "timestamp": 97,
+        "image": "history_images/history_20251018/DJI_0874.JPG"
+      },
+      {
+        "lat": 15.282376777777777,
+        "lng": -61.36933813888889,
+        "altitude": 231.662,
+        "timestamp": 98,
+        "image": "history_images/history_20251018/DJI_0883.JPG"
+      },
+      {
+        "lat": 15.282376305555555,
+        "lng": -61.36821761111111,
+        "altitude": 231.762,
+        "timestamp": 99,
+        "image": "history_images/history_20251018/DJI_0892.JPG"
+      },
+      {
+        "lat": 15.282377055555555,
+        "lng": -61.36709166666667,
+        "altitude": 231.662,
+        "timestamp": 100,
+        "image": "history_images/history_20251018/DJI_0901.JPG"
+      },
+      {
+        "lat": 15.282634222222223,
+        "lng": -61.367469166666666,
+        "altitude": 231.562,
+        "timestamp": 101,
+        "image": "history_images/history_20251018/DJI_0910.JPG"
+      },
+      {
+        "lat": 15.282634833333333,
+        "lng": -61.36858494444444,
+        "altitude": 231.762,
+        "timestamp": 102,
+        "image": "history_images/history_20251018/DJI_0919.JPG"
+      },
+      {
+        "lat": 15.282634722222221,
+        "lng": -61.36970516666667,
+        "altitude": 231.762,
+        "timestamp": 103,
+        "image": "history_images/history_20251018/DJI_0928.JPG"
+      },
+      {
+        "lat": 15.282635305555555,
+        "lng": -61.3708245,
+        "altitude": 231.762,
+        "timestamp": 104,
+        "image": "history_images/history_20251018/DJI_0937.JPG"
+      },
+      {
+        "lat": 15.282634833333333,
+        "lng": -61.37194486111111,
+        "altitude": 231.862,
+        "timestamp": 105,
+        "image": "history_images/history_20251018/DJI_0946.JPG"
+      },
+      {
+        "lat": 15.282634722222221,
+        "lng": -61.3730625,
+        "altitude": 231.862,
+        "timestamp": 106,
+        "image": "history_images/history_20251018/DJI_0955.JPG"
+      },
+      {
+        "lat": 15.282635055555556,
+        "lng": -61.37412525,
+        "altitude": 231.762,
+        "timestamp": 107,
+        "image": "history_images/history_20251018/DJI_0964.JPG"
+      },
+      {
+        "lat": 15.282635916666667,
+        "lng": -61.375245472222225,
+        "altitude": 231.762,
+        "timestamp": 108,
+        "image": "history_images/history_20251018/DJI_0973.JPG"
+      },
+      {
+        "lat": 15.282893388888889,
+        "lng": -61.37479536111111,
+        "altitude": 231.762,
+        "timestamp": 109,
+        "image": "history_images/history_20251018/DJI_0982.JPG"
+      },
+      {
+        "lat": 15.282892694444444,
+        "lng": -61.373680722222225,
+        "altitude": 231.762,
+        "timestamp": 110,
+        "image": "history_images/history_20251018/DJI_0991.JPG"
+      },
+      {
+        "lat": 15.282971388888889,
+        "lng": -61.369891,
+        "altitude": 232.205,
+        "timestamp": 111,
+        "image": "history_images/history_20251018/Flight_2 (100).JPG"
+      },
+      {
+        "lat": 15.282971444444444,
+        "lng": -61.37101308333333,
+        "altitude": 232.305,
+        "timestamp": 112,
+        "image": "history_images/history_20251018/Flight_2 (109).JPG"
+      },
+      {
+        "lat": 15.28297136111111,
+        "lng": -61.37200630555556,
+        "altitude": 232.305,
+        "timestamp": 113,
+        "image": "history_images/history_20251018/Flight_2 (117).JPG"
+      },
+      {
+        "lat": 15.28297175,
+        "lng": -61.3731255,
+        "altitude": 232.205,
+        "timestamp": 114,
+        "image": "history_images/history_20251018/Flight_2 (126).JPG"
+      },
+      {
+        "lat": 15.282970416666666,
+        "lng": -61.37399683333334,
+        "altitude": 232.305,
+        "timestamp": 115,
+        "image": "history_images/history_20251018/Flight_2 (133).JPG"
+      },
+      {
+        "lat": 15.282970916666667,
+        "lng": -61.374998777777776,
+        "altitude": 232.305,
+        "timestamp": 116,
+        "image": "history_images/history_20251018/Flight_2 (141).JPG"
+      },
+      {
+        "lat": 15.283228583333333,
+        "lng": -61.37509427777778,
+        "altitude": 232.205,
+        "timestamp": 117,
+        "image": "history_images/history_20251018/Flight_2 (150).JPG"
+      },
+      {
+        "lat": 15.283229527777777,
+        "lng": -61.37398077777778,
+        "altitude": 232.205,
+        "timestamp": 118,
+        "image": "history_images/history_20251018/Flight_2 (159).JPG"
+      },
+      {
+        "lat": 15.283231361111111,
+        "lng": -61.37311127777778,
+        "altitude": 232.205,
+        "timestamp": 119,
+        "image": "history_images/history_20251018/Flight_2 (166).JPG"
+      },
+      {
+        "lat": 15.283229694444444,
+        "lng": -61.37211588888889,
+        "altitude": 232.305,
+        "timestamp": 120,
+        "image": "history_images/history_20251018/Flight_2 (174).JPG"
+      },
+      {
+        "lat": 15.283230416666667,
+        "lng": -61.370995916666665,
+        "altitude": 232.305,
+        "timestamp": 121,
+        "image": "history_images/history_20251018/Flight_2 (183).JPG"
+      },
+      {
+        "lat": 15.283229444444444,
+        "lng": -61.37012608333333,
+        "altitude": 232.305,
+        "timestamp": 122,
+        "image": "history_images/history_20251018/Flight_2 (190).JPG"
+      },
+      {
+        "lat": 15.283229666666667,
+        "lng": -61.369005666666666,
+        "altitude": 232.305,
+        "timestamp": 123,
+        "image": "history_images/history_20251018/Flight_2 (199).JPG"
+      },
+      {
+        "lat": 15.283231083333334,
+        "lng": -61.368260916666664,
+        "altitude": 232.205,
+        "timestamp": 124,
+        "image": "history_images/history_20251018/Flight_2 (205).JPG"
+      },
+      {
+        "lat": 15.283227472222222,
+        "lng": -61.36714008333333,
+        "altitude": 232.305,
+        "timestamp": 125,
+        "image": "history_images/history_20251018/Flight_2 (214).JPG"
+      },
+      {
+        "lat": 15.282894333333333,
+        "lng": -61.36987236111111,
+        "altitude": 231.862,
+        "timestamp": 126,
+        "image": "history_images/history_20251018/Flight_2 (22).JPG"
+      },
+      {
+        "lat": 15.283488055555555,
+        "lng": -61.36756577777778,
+        "altitude": 232.305,
+        "timestamp": 127,
+        "image": "history_images/history_20251018/Flight_2 (222).JPG"
+      },
+      {
+        "lat": 15.283487944444444,
+        "lng": -61.36955233333333,
+        "altitude": 232.305,
+        "timestamp": 128,
+        "image": "history_images/history_20251018/Flight_2 (238).JPG"
+      },
+      {
+        "lat": 15.283488972222223,
+        "lng": -61.370671916666666,
+        "altitude": 232.405,
+        "timestamp": 129,
+        "image": "history_images/history_20251018/Flight_2 (247).JPG"
+      },
+      {
+        "lat": 15.283488055555555,
+        "lng": -61.37166666666667,
+        "altitude": 232.405,
+        "timestamp": 130,
+        "image": "history_images/history_20251018/Flight_2 (255).JPG"
+      },
+      {
+        "lat": 15.283487694444444,
+        "lng": -61.37253825,
+        "altitude": 232.505,
+        "timestamp": 131,
+        "image": "history_images/history_20251018/Flight_2 (262).JPG"
+      },
+      {
+        "lat": 15.282894194444445,
+        "lng": -61.36925152777778,
+        "altitude": 231.762,
+        "timestamp": 132,
+        "image": "history_images/history_20251018/Flight_2 (27).JPG"
+      },
+      {
+        "lat": 15.283488305555556,
+        "lng": -61.37366294444445,
+        "altitude": 232.305,
+        "timestamp": 133,
+        "image": "history_images/history_20251018/Flight_2 (271).JPG"
+      },
+      {
+        "lat": 15.283746333333333,
+        "lng": -61.3742165,
+        "altitude": 232.405,
+        "timestamp": 134,
+        "image": "history_images/history_20251018/Flight_2 (288).JPG"
+      },
+      {
+        "lat": 15.283746916666667,
+        "lng": -61.37334675,
+        "altitude": 232.405,
+        "timestamp": 135,
+        "image": "history_images/history_20251018/Flight_2 (295).JPG"
+      },
+      {
+        "lat": 15.283746944444445,
+        "lng": -61.37222605555556,
+        "altitude": 232.405,
+        "timestamp": 136,
+        "image": "history_images/history_20251018/Flight_2 (304).JPG"
+      },
+      {
+        "lat": 15.282893638888888,
+        "lng": -61.3687535,
+        "altitude": 231.762,
+        "timestamp": 137,
+        "image": "history_images/history_20251018/Flight_2 (31).JPG"
+      },
+      {
+        "lat": 15.283747305555556,
+        "lng": -61.37123166666667,
+        "altitude": 232.405,
+        "timestamp": 138,
+        "image": "history_images/history_20251018/Flight_2 (312).JPG"
+      },
+      {
+        "lat": 15.283748305555555,
+        "lng": -61.36924152777778,
+        "altitude": 232.405,
+        "timestamp": 139,
+        "image": "history_images/history_20251018/Flight_2 (328).JPG"
+      },
+      {
+        "lat": 15.283748083333334,
+        "lng": -61.36811544444444,
+        "altitude": 232.405,
+        "timestamp": 140,
+        "image": "history_images/history_20251018/Flight_2 (337).JPG"
+      },
+      {
+        "lat": 15.284005055555555,
+        "lng": -61.36948863888889,
+        "altitude": 232.405,
+        "timestamp": 141,
+        "image": "history_images/history_20251018/Flight_2 (345).JPG"
+      },
+      {
+        "lat": 15.284005916666667,
+        "lng": -61.37035841666667,
+        "altitude": 232.505,
+        "timestamp": 142,
+        "image": "history_images/history_20251018/Flight_2 (352).JPG"
+      },
+      {
+        "lat": 15.282894972222222,
+        "lng": -61.36813180555556,
+        "altitude": 231.762,
+        "timestamp": 143,
+        "image": "history_images/history_20251018/Flight_2 (36).JPG"
+      },
+      {
+        "lat": 15.284005444444444,
+        "lng": -61.371478,
+        "altitude": 232.405,
+        "timestamp": 144,
+        "image": "history_images/history_20251018/Flight_2 (361).JPG"
+      },
+      {
+        "lat": 15.284005944444445,
+        "lng": -61.37259725,
+        "altitude": 232.405,
+        "timestamp": 145,
+        "image": "history_images/history_20251018/Flight_2 (370).JPG"
+      },
+      {
+        "lat": 15.284006416666667,
+        "lng": -61.37371563888889,
+        "altitude": 232.405,
+        "timestamp": 146,
+        "image": "history_images/history_20251018/Flight_2 (379).JPG"
+      },
+      {
+        "lat": 15.282892916666666,
+        "lng": -61.36763522222222,
+        "altitude": 231.762,
+        "timestamp": 147,
+        "image": "history_images/history_20251018/Flight_2 (40).JPG"
+      },
+      {
+        "lat": 15.283149916666666,
+        "lng": -61.36716258333333,
+        "altitude": 231.762,
+        "timestamp": 148,
+        "image": "history_images/history_20251018/Flight_2 (49).JPG"
+      },
+      {
+        "lat": 15.283152527777778,
+        "lng": -61.368135611111114,
+        "altitude": 231.762,
+        "timestamp": 149,
+        "image": "history_images/history_20251018/Flight_2 (57).JPG"
+      },
+      {
+        "lat": 15.283152722222223,
+        "lng": -61.36925413888889,
+        "altitude": 231.862,
+        "timestamp": 150,
+        "image": "history_images/history_20251018/Flight_2 (66).JPG"
+      },
+      {
+        "lat": 15.283152222222222,
+        "lng": -61.37012252777778,
+        "altitude": 231.862,
+        "timestamp": 151,
+        "image": "history_images/history_20251018/Flight_2 (73).JPG"
+      },
+      {
+        "lat": 15.282968805555555,
+        "lng": -61.36753136111111,
+        "altitude": 232.205,
+        "timestamp": 152,
+        "image": "history_images/history_20251018/Flight_2 (81).JPG"
+      },
+      {
+        "lat": 15.282971111111111,
+        "lng": -61.36864902777778,
+        "altitude": 232.305,
+        "timestamp": 153,
+        "image": "history_images/history_20251018/Flight_2 (90).JPG"
+      },
+      {
+        "lat": 15.282971305555556,
+        "lng": -61.36976661111111,
+        "altitude": 232.205,
+        "timestamp": 154,
+        "image": "history_images/history_20251018/Flight_2 (99).JPG"
+      }
+    ]
+  }
+]

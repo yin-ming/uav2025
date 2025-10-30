@@ -1,0 +1,37 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "UAV Rescue Terminal",
+  "version": "0.1.0",
+  "identifier": "com.uavrescue.terminal",
+  "build": {
+    "frontendDist": "../build",
+    "devUrl": "http://localhost:3000",
+    "beforeDevCommand": "",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "UAV Search & Rescue Ground Station",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' http://localhost:3000; img-src 'self' http://localhost:3000 https: data: blob:; style-src 'self' http://localhost:3000 'unsafe-inline' https:; script-src 'self' http://localhost:3000 'unsafe-inline' 'unsafe-eval'; connect-src 'self' http://localhost:3000 https:; font-src 'self' http://localhost:3000 https: data:;"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
