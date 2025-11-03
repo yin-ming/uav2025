@@ -7,10 +7,10 @@ import TelemetryDisplay from './components/TelemetryDisplay';
 import FlightHistoryPanel from './components/FlightHistoryPanel';
 import ReplayControls from './components/ReplayControls';
 import { updateUAVState } from './utils/uavSimulation';
-import { initDatabase, getFlights, getFlightWaypoints, getUAVs } from './services/database';
+import { initDatabase, getFlights, getFlightWaypoints, getUAVs, deleteFlight } from './services/database';
 import { showEnvironmentInfo } from './services/environment';
 import { getImageUrl } from './services/fileService';
-import { startPeriodicSync } from './services/apiSync';
+import { connectToSSE } from './services/apiClient';
 
 function App() {
   const [uavs, setUAVs] = useState([]);
@@ -68,20 +68,91 @@ function App() {
         await initDatabase();
         console.log('[App] Database initialized');
 
+        // Connect to SSE for real-time updates from external UAVs
+        const eventSource = connectToSSE();
+        console.log('[App] Connected to SSE for real-time updates');
+
         // Load flight history
         await loadFlightHistory();
 
-        // Start periodic sync from API JSON files to IndexedDB
-        startPeriodicSync();
-
         // Mark database as initialized
         setIsDatabaseInitialized(true);
+
+        // Cleanup SSE connection on unmount
+        return () => {
+          eventSource.close();
+          console.log('[App] SSE connection closed');
+        };
       } catch (error) {
         console.error('[App] Error initializing app:', error);
       }
     }
 
     initializeApp();
+  }, []);
+
+  // Listen for flight start events from external UAVs
+  useEffect(() => {
+    const handleFlightStarted = (event) => {
+      const { uav_name, flight_id } = event.detail;
+      console.log(`[App] UAV ${uav_name} started flight ${flight_id}, updating status to 'searching'`);
+
+      setUAVs(prev => prev.map(uav =>
+        uav.name === uav_name
+          ? {
+              ...uav,
+              status: 'searching',
+              isSearching: true,
+              startPosition: { ...uav.position } // Store start position for return
+            }
+          : uav
+      ));
+    };
+
+    const handleFlightStopped = (event) => {
+      const { uav_name, flight_id } = event.detail;
+      console.log(`[App] UAV ${uav_name} stopped flight${flight_id ? ` ${flight_id}` : ''}, updating status to 'idle'`);
+
+      setUAVs(prev => prev.map(uav =>
+        uav.name === uav_name
+          ? {
+              ...uav,
+              status: 'idle',
+              isSearching: false,
+              speed: 0
+            }
+          : uav
+      ));
+    };
+
+    const handleTelemetryUpdated = (event) => {
+      const { uav_name, position, altitude, battery, speed, heading } = event.detail;
+      console.log(`[App] UAV ${uav_name} telemetry updated: position (${position.lat}, ${position.lng}), altitude ${altitude}m`);
+
+      setUAVs(prev => prev.map(uav =>
+        uav.name === uav_name
+          ? {
+              ...uav,
+              position: position,
+              altitude: altitude || uav.altitude,
+              battery: battery !== undefined ? battery : uav.battery,
+              speed: speed !== undefined ? speed : uav.speed,
+              direction: heading !== undefined ? heading : uav.direction,
+              flightPath: [...(uav.flightPath || []), position]
+            }
+          : uav
+      ));
+    };
+
+    window.addEventListener('uav-flight-started', handleFlightStarted);
+    window.addEventListener('uav-flight-stopped', handleFlightStopped);
+    window.addEventListener('uav-telemetry-updated', handleTelemetryUpdated);
+
+    return () => {
+      window.removeEventListener('uav-flight-started', handleFlightStarted);
+      window.removeEventListener('uav-flight-stopped', handleFlightStopped);
+      window.removeEventListener('uav-telemetry-updated', handleTelemetryUpdated);
+    };
   }, []);
 
   // Load flight history from database
@@ -306,6 +377,26 @@ function App() {
     setReplayWaypoint(waypoint);
   }, []);
 
+  // Handle flight record deletion
+  const handleDeleteRecord = useCallback(async (record) => {
+    try {
+      // Delete from database
+      await deleteFlight(record.flightId);
+      console.log(`[App] Deleted flight record: ${record.name} (${record.flightId})`);
+
+      // Reload flight history
+      await loadFlightHistory();
+
+      // If the deleted record was being replayed, stop replay
+      if (selectedHistoryRecord?.id === record.id) {
+        handleStopReplay();
+      }
+    } catch (error) {
+      console.error('[App] Error deleting flight record:', error);
+      alert('Failed to delete flight record. Please try again.');
+    }
+  }, [selectedHistoryRecord]);
+
   // Handle search area definition
   const handleDefineSearchArea = useCallback((area) => {
     const newArea = {
@@ -350,6 +441,26 @@ function App() {
         : uav
     ));
   }, []);
+
+  // Handle UAV selection and center map on UAV
+  const handleSelectUAV = useCallback((uav) => {
+    setSelectedUAV(uav);
+
+    // Clear any existing drawing path when changing UAV or returning to fleet list
+    if (isDrawing || !uav) {
+      setIsDrawing(false);
+      setDrawingPath([]);
+      setIsUpdatingRoute(false);
+    }
+
+    // Center map on selected UAV
+    if (uav && uav.position) {
+      setMapCenter({
+        lat: uav.position.lat,
+        lng: uav.position.lng
+      });
+    }
+  }, [isDrawing]);
 
   // Drawing handlers
   const handleStartDrawing = useCallback(() => {
@@ -416,10 +527,47 @@ function App() {
     }
   }, [isDrawing, isUpdatingRoute, selectedUAV]);
 
-  const handleCompleteAndStartFlight = useCallback(() => {
+  const handleCompleteAndStartFlight = useCallback(async () => {
     if (drawingPath.length >= 2 && selectedUAV && selectedUAV.isOnline) {
       // Create the route and get its ID
       const areaId = handleDefineSearchArea(drawingPath);
+
+      // Send waypoints to external flight controller
+      const flightControllerUrl = process.env.REACT_APP_FLIGHT_CONTROLLER_URL;
+      if (flightControllerUrl) {
+        try {
+          const waypoints = drawingPath.map((point, index) => ({
+            sequence: index + 1,
+            latitude: point.lat,
+            longitude: point.lng,
+            altitude: selectedUAV.altitude || 100 // Use UAV's current altitude or default to 100m
+          }));
+
+          console.log(`[Flight Controller] Sending ${waypoints.length} waypoints to ${flightControllerUrl}`);
+
+          const response = await fetch(`${flightControllerUrl}/api/waypoints`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              uav_name: selectedUAV.name,
+              waypoints: waypoints,
+              timestamp: new Date().toISOString()
+            })
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            console.log('[Flight Controller] Waypoints sent successfully:', result);
+          } else {
+            console.error('[Flight Controller] Failed to send waypoints:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('[Flight Controller] Error sending waypoints:', error);
+          // Continue with flight even if external API fails
+        }
+      }
 
       // Start the flight immediately
       setTimeout(() => {
@@ -562,7 +710,7 @@ function App() {
                     <UAVControlPanel
                       uavs={uavs}
                       selectedUAV={selectedUAV}
-                      onSelectUAV={setSelectedUAV}
+                      onSelectUAV={handleSelectUAV}
                       onStartSearch={handleStartSearch}
                       onCancelSearch={handleCancelSearch}
                       searchAreas={searchAreas}
@@ -598,6 +746,7 @@ function App() {
                 historyRecords={historyRecords}
                 onPlayRecord={handlePlayRecord}
                 selectedRecord={selectedHistoryRecord}
+                onDeleteRecord={handleDeleteRecord}
               />
             )}
           </div>
@@ -609,7 +758,7 @@ function App() {
             selectedUAV={selectedUAV}
             searchAreas={searchAreas}
             onDefineSearchArea={handleDefineSearchArea}
-            onSelectUAV={setSelectedUAV}
+            onSelectUAV={handleSelectUAV}
             onStartSearch={handleStartSearch}
             replayData={selectedHistoryRecord}
             replayWaypoint={replayWaypoint}

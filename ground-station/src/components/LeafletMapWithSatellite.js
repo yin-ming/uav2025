@@ -248,6 +248,9 @@ const LeafletMapWithSatellite = ({
     const processedPositions = new Set();
 
     uavs.forEach(uav => {
+      // If a UAV is selected, only show that UAV's coverage
+      if (selectedUAV && uav.id !== selectedUAV.id) return;
+
       if (uav.coveragePoints && uav.coveragePoints.length > 0 && uav.isOnline) {
         uav.coveragePoints.forEach(coveragePoint => {
           // Handle both old format (just position) and new format (position + altitude)
@@ -271,7 +274,7 @@ const LeafletMapWithSatellite = ({
     });
 
     return areas;
-  }, [uavs]);
+  }, [uavs, selectedUAV]);
 
   // Handle map click for drawing search areas
   const handleMapClick = useCallback((latlng) => {
@@ -483,6 +486,9 @@ const LeafletMapWithSatellite = ({
         {uavs.map(uav => {
           if (!uav.isOnline && uav.status === 'offline') return null;
 
+          // If a UAV is selected, only show that UAV
+          if (selectedUAV && uav.id !== selectedUAV.id) return null;
+
           const icon = createUAVIcon(getUAVColor(uav), selectedUAV?.id === uav.id, uav.direction, uav.altitude);
 
           return (
@@ -499,8 +505,11 @@ const LeafletMapWithSatellite = ({
 
 
         {/* UAV actual flight paths - solid lines showing where UAV has actually flown */}
-        {uavs.map(uav =>
-          uav.flightPath && uav.flightPath.length > 0 && (
+        {uavs.map(uav => {
+          // If a UAV is selected, only show that UAV's flight path
+          if (selectedUAV && uav.id !== selectedUAV.id) return null;
+
+          return uav.flightPath && uav.flightPath.length > 0 && (
             <Polyline
               key={`path-${uav.id}`}
               positions={uav.flightPath.map(p => [p.lat, p.lng])}
@@ -511,8 +520,8 @@ const LeafletMapWithSatellite = ({
                 dashArray: undefined  // Solid line for actual flight path
               }}
             />
-          )
-        )}
+          );
+        })}
 
         {/* Replay UAV and Flight Path */}
         {replayData && replayData.waypoints && replayWaypoint < replayData.waypoints.length && (
@@ -569,6 +578,9 @@ const LeafletMapWithSatellite = ({
           // Find the UAV assigned to this area to check waypoint progress
           const assignedUAV = uavs.find(uav => area.assignedUAV === uav.id);
           const currentWaypointIndex = assignedUAV?.currentWaypointIndex ?? -1;
+
+          // If a UAV is selected, only show that UAV's route
+          if (selectedUAV && area.assignedUAV !== selectedUAV.id) return null;
 
           return (
             <React.Fragment key={area.id}>

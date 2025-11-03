@@ -1,7 +1,7 @@
 /**
  * Proxy configuration for React development server
  * Integrates API routes into port 3000
- * Now uses IndexedDB directly (via browserDatabase) instead of JSON files
+ * Broadcasts SSE events - data is stored in browser IndexedDB
  */
 
 const express = require('express');
@@ -9,10 +9,10 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs').promises;
 
-// Import JSON file database service for Node.js API
-const db = require('./api/database');
-
 module.exports = function(app) {
+
+  // Store SSE clients
+  let sseClients = [];
 
   // Middleware
   app.use(express.json());
@@ -51,6 +51,41 @@ module.exports = function(app) {
     }
   });
 
+  // Helper function to broadcast events to all SSE clients
+  const broadcastEvent = (eventType, data) => {
+    const message = `event: ${eventType}\ndata: ${JSON.stringify(data)}\n\n`;
+    sseClients = sseClients.filter(client => {
+      try {
+        client.write(message);
+        return true;
+      } catch (error) {
+        return false; // Remove disconnected clients
+      }
+    });
+  };
+
+  // Server-Sent Events endpoint for real-time updates
+  app.get('/api/v1/events', (req, res) => {
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Send initial connection message
+    res.write('data: {"type":"connected","message":"SSE connection established"}\n\n');
+
+    // Add this client to the list
+    sseClients.push(res);
+
+    console.log(`[SSE] Client connected. Total clients: ${sseClients.length}`);
+
+    // Handle client disconnect
+    req.on('close', () => {
+      sseClients = sseClients.filter(client => client !== res);
+      console.log(`[SSE] Client disconnected. Total clients: ${sseClients.length}`);
+    });
+  });
+
   // Health check
   app.get('/api/v1/health', (req, res) => {
     res.json({
@@ -73,15 +108,20 @@ module.exports = function(app) {
         });
       }
 
-      const uav = await db.registerUAV({ name });
+      console.log(`[API] UAV registration request: ${name}`);
 
-      console.log(`[API] UAV registered: ${name}`);
+      const uavData = {
+        name: name,
+        registered_at: new Date().toISOString(),
+        last_seen: new Date().toISOString()
+      };
+
+      // Broadcast event to SSE clients (saved to IndexedDB by browser)
+      broadcastEvent('uav_registered', uavData);
 
       res.json({
         success: true,
-        data: {
-          name: uav.name
-        }
+        data: uavData
       });
     } catch (error) {
       console.error('[API] Error registering UAV:', error);
@@ -89,52 +129,26 @@ module.exports = function(app) {
     }
   });
 
-  // UAV Status
-  app.get('/api/v1/uav/:name/status', async (req, res) => {
-    try {
-      const { name } = req.params;
-      const uav = await db.getUAV(name);
-
-      if (!uav) {
-        return res.status(404).json({ success: false, error: 'UAV not found' });
-      }
-
-      res.json({
-        success: true,
-        data: {
-          name: uav.name,
-          status: 'online',
-          last_seen: uav.last_seen
-        }
-      });
-    } catch (error) {
-      console.error('[API] Error getting UAV status:', error);
-      res.status(500).json({ success: false, error: 'Internal server error' });
-    }
-  });
 
   // Delete UAV
   app.delete('/api/v1/uav/:name', async (req, res) => {
     try {
       const { name } = req.params;
 
-      // Delete UAV and all associated data
-      const result = await db.deleteUAV(name);
+      console.log(`[API] UAV deletion request: ${name}`);
 
-      if (!result) {
-        return res.status(404).json({ success: false, error: 'UAV not found' });
-      }
+      const deletionData = {
+        name: name,
+        deleted_at: new Date().toISOString()
+      };
 
-      console.log(`[API] UAV deleted: ${name} (${result.flights_deleted} flights, ${result.telemetry_deleted} telemetry records)`);
+      // Broadcast event to SSE clients (deleted from IndexedDB by browser)
+      broadcastEvent('uav_deleted', deletionData);
 
       res.json({
         success: true,
-        message: `UAV ${name} and all associated data deleted successfully`,
-        data: {
-          name: result.uav.name,
-          flights_deleted: result.flights_deleted,
-          telemetry_deleted: result.telemetry_deleted
-        }
+        message: `UAV ${name} deletion acknowledged`,
+        data: deletionData
       });
     } catch (error) {
       console.error('[API] Error deleting UAV:', error);
@@ -142,36 +156,35 @@ module.exports = function(app) {
     }
   });
 
-  // Start Flight
+  // Start Flight (stateless)
   app.post('/api/v1/flight/start', async (req, res) => {
     try {
-      const { flight_id, name, location, uav_name } = req.body;
-      if (!flight_id || !uav_name) {
-        return res.status(400).json({ success: false, error: 'Missing required fields: flight_id, uav_name' });
+      const { location, uav_name } = req.body;
+      if (!uav_name) {
+        return res.status(400).json({ success: false, error: 'Missing required field: uav_name' });
       }
 
-      const uav = await db.getUAV(uav_name);
-      if (!uav) {
-        return res.status(404).json({ success: false, error: 'UAV not found' });
-      }
+      // Generate flight_id automatically
+      const flight_id = `flight-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
 
-      const flight = await db.createFlight({
-        flight_id,
-        uav_name,
-        name: name || `Flight ${flight_id}`,
-        location: location || 'Unknown'
-      });
+      console.log(`[API] Flight start request: ${flight_id} by UAV ${uav_name}`);
 
-      console.log(`[API] Flight started: ${flight_id} by UAV ${uav_name}`);
+      const flightData = {
+        flight_id: flight_id,
+        uav_name: uav_name,
+        location: location || 'Unknown',
+        start_time: new Date().toISOString(),
+        end_time: null,
+        status: 'active',
+        waypoint_count: 0
+      };
+
+      // Broadcast event to SSE clients
+      broadcastEvent('flight_started', flightData);
 
       res.json({
         success: true,
-        data: {
-          flight_id: flight.flight_id,
-          uav_name: flight.uav_name,
-          start_time: flight.start_time,
-          status: flight.status
-        }
+        data: flightData
       });
     } catch (error) {
       console.error('[API] Error starting flight:', error);
@@ -179,28 +192,50 @@ module.exports = function(app) {
     }
   });
 
-  // Complete Flight
+  // Stop Flight (UAV finished flying and shut down motor)
+  app.post('/api/v1/flight/stop', async (req, res) => {
+    try {
+      const { uav_name, flight_id } = req.body;
+      if (!uav_name) {
+        return res.status(400).json({ success: false, error: 'Missing required field: uav_name' });
+      }
+
+      console.log(`[API] Flight stop request: UAV ${uav_name}${flight_id ? ` (flight ${flight_id})` : ''}`);
+
+      const stopData = {
+        uav_name: uav_name,
+        flight_id: flight_id || null,
+        stopped_at: new Date().toISOString()
+      };
+
+      // Broadcast event to SSE clients
+      broadcastEvent('flight_stopped', stopData);
+
+      res.json({
+        success: true,
+        message: `UAV ${uav_name} stopped successfully`,
+        data: stopData
+      });
+    } catch (error) {
+      console.error('[API] Error stopping flight:', error);
+      res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+  });
+
+  // Complete Flight (stateless)
   app.post('/api/v1/flight/:flight_id/complete', async (req, res) => {
     try {
       const { flight_id } = req.params;
       const { end_time } = req.body;
 
-      const existingFlight = await db.getFlight(flight_id);
-      if (!existingFlight) {
-        return res.status(404).json({ success: false, error: 'Flight not found' });
-      }
-
-      const flight = await db.completeFlight(flight_id, end_time);
-      console.log(`[API] Flight completed: ${flight_id}`);
+      console.log(`[API] Flight completion request: ${flight_id}`);
 
       res.json({
         success: true,
         data: {
-          flight_id: flight.flight_id,
-          start_time: flight.start_time,
-          end_time: flight.end_time,
-          status: flight.status,
-          waypoint_count: flight.waypoint_count
+          flight_id: flight_id,
+          end_time: end_time || new Date().toISOString(),
+          status: 'completed'
         }
       });
     } catch (error) {
@@ -224,11 +259,6 @@ module.exports = function(app) {
         });
       }
 
-      const flight = await db.getFlight(flight_id);
-      if (!flight) {
-        return res.status(404).json({ success: false, error: 'Flight not found' });
-      }
-
       let imagePath = null;
       let annotatedImagePath = null;
 
@@ -241,28 +271,26 @@ module.exports = function(app) {
         }
       }
 
-      const waypoint = await db.addWaypoint({
-        flight_id,
+      console.log(`[API] Waypoint upload: ${flight_id} #${sequence_number}`);
+
+      const waypointData = {
+        flight_id: flight_id,
         sequence_number: parseInt(sequence_number),
         latitude: parseFloat(latitude),
         longitude: parseFloat(longitude),
         altitude: parseFloat(altitude),
         timestamp: timestamp || new Date().toISOString(),
         image_path: imagePath,
+        annotated_image_path: annotatedImagePath,
         flooded: flooded === 'true' || flooded === true
-      });
+      };
 
-      console.log(`[API] Waypoint uploaded: ${flight_id} #${sequence_number}`);
+      // Broadcast event to SSE clients
+      broadcastEvent('waypoint_uploaded', waypointData);
 
       res.json({
         success: true,
-        data: {
-          waypoint_id: waypoint.id,
-          flight_id: waypoint.flight_id,
-          sequence_number: waypoint.sequence_number,
-          image_path: imagePath,
-          annotated_image_path: annotatedImagePath
-        }
+        data: waypointData
       });
     } catch (error) {
       console.error('[API] Error uploading waypoint:', error);
@@ -270,7 +298,7 @@ module.exports = function(app) {
     }
   });
 
-  // Batch Upload Waypoints
+  // Batch Upload Waypoints (stateless)
   app.post('/api/v1/waypoint/batch', async (req, res) => {
     try {
       const { flight_id, waypoints } = req.body;
@@ -282,33 +310,25 @@ module.exports = function(app) {
         });
       }
 
-      const flight = await db.getFlight(flight_id);
-      if (!flight) {
-        return res.status(404).json({ success: false, error: 'Flight not found' });
-      }
+      // Format waypoints with timestamps
+      const formattedWaypoints = waypoints.map(wp => ({
+        flight_id,
+        sequence_number: wp.sequence_number,
+        latitude: wp.latitude,
+        longitude: wp.longitude,
+        altitude: wp.altitude,
+        timestamp: wp.timestamp || new Date().toISOString(),
+        image_path: wp.image_path || null,
+        flooded: wp.flooded || false
+      }));
 
-      const savedWaypoints = [];
-      for (const wp of waypoints) {
-        const waypoint = await db.addWaypoint({
-          flight_id,
-          sequence_number: wp.sequence_number,
-          latitude: wp.latitude,
-          longitude: wp.longitude,
-          altitude: wp.altitude,
-          timestamp: wp.timestamp || new Date().toISOString(),
-          image_path: null,
-          flooded: wp.flooded || false
-        });
-        savedWaypoints.push(waypoint);
-      }
-
-      console.log(`[API] Batch waypoints uploaded: ${savedWaypoints.length} waypoints for flight ${flight_id}`);
+      console.log(`[API] Batch waypoint upload: ${formattedWaypoints.length} waypoints for flight ${flight_id}`);
 
       res.json({
         success: true,
         data: {
-          waypoints_saved: savedWaypoints.length,
-          waypoints: savedWaypoints
+          waypoints_saved: formattedWaypoints.length,
+          waypoints: formattedWaypoints
         }
       });
     } catch (error) {
@@ -317,7 +337,7 @@ module.exports = function(app) {
     }
   });
 
-  // Sync Telemetry
+  // Sync Telemetry (stateless)
   app.post('/api/v1/telemetry/sync', async (req, res) => {
     try {
       const { telemetry, uav_name } = req.body;
@@ -345,21 +365,26 @@ module.exports = function(app) {
         }
       }
 
-      const enrichedTelemetry = telemetry.map(record => ({
+      // Format telemetry records with timestamps
+      const formattedTelemetry = telemetry.map(record => ({
         ...record,
-        uav_name
+        uav_name,
+        timestamp: record.timestamp || new Date().toISOString()
       }));
 
-      // Add telemetry batch
-      const count = await db.addTelemetryBatch(enrichedTelemetry);
+      console.log(`[API] Telemetry batch: ${formattedTelemetry.length} records from UAV ${uav_name}`);
 
-      console.log(`[API] Telemetry batch uploaded: ${count} records from UAV ${uav_name}`);
+      const telemetryData = {
+        records_saved: formattedTelemetry.length,
+        telemetry: formattedTelemetry
+      };
+
+      // Broadcast event to SSE clients (saved to IndexedDB by browser)
+      broadcastEvent('telemetry_synced', telemetryData);
 
       res.json({
         success: true,
-        data: {
-          records_saved: count
-        }
+        data: telemetryData
       });
     } catch (error) {
       console.error('[API] Error saving telemetry:', error);

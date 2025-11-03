@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
-import { Play, MapPin, Image, Clock, Calendar, Layers, Database, FileText } from 'lucide-react';
+import { Play, MapPin, Image, Clock, Calendar, Layers, Database, FileText, Trash2 } from 'lucide-react';
 import OrthomosaicViewer from './OrthomosaicViewer';
 import FlightReportModal from './FlightReportModal';
 
-const FlightHistoryPanel = ({ historyRecords, onPlayRecord, selectedRecord }) => {
+const FlightHistoryPanel = ({ historyRecords, onPlayRecord, selectedRecord, onDeleteRecord }) => {
   const [orthomosaicViewerOpen, setOrthomosaicViewerOpen] = useState(false);
   const [reportModalOpen, setReportModalOpen] = useState(false);
   const [selectedFlight, setSelectedFlight] = useState(null);
@@ -55,8 +55,24 @@ const FlightHistoryPanel = ({ historyRecords, onPlayRecord, selectedRecord }) =>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[hsl(var(--panel-glow)/0.05)] to-transparent animate-shimmer pointer-events-none"></div>
             )}
 
-            {/* Status LED */}
-            <div className="absolute top-3 right-3">
+            {/* Top-right controls: Delete button and Status LED */}
+            <div className="absolute top-3 right-3 flex items-center gap-2">
+              {/* Delete button */}
+              {onDeleteRecord && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering card click
+                    if (window.confirm(`Are you sure you want to delete flight "${record.name}"?`)) {
+                      onDeleteRecord(record);
+                    }
+                  }}
+                  className="p-1 rounded hover:bg-red-500/20 transition-colors group"
+                  title="Delete flight record"
+                >
+                  <Trash2 className="w-3.5 h-3.5 text-red-400 group-hover:text-red-300" />
+                </button>
+              )}
+              {/* Status LED */}
               <div className={`w-2 h-2 led-indicator ${
                 selectedRecord?.id === record.id
                   ? 'bg-[hsl(var(--aviation-green))] text-[hsl(var(--aviation-green))]'
